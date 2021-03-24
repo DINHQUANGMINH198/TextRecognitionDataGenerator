@@ -405,14 +405,14 @@ def main():
             args.length, args.random, args.count, lang_dict
         )
 
-    if args.language == "ar":
-        from arabic_reshaper import ArabicReshaper
-
-        arabic_reshaper = ArabicReshaper()
-        strings = [
-            " ".join([arabic_reshaper.reshape(w) for w in s.split(" ")[::-1]])
-            for s in strings
-        ]
+    # if args.language == "ar":
+    #     from arabic_reshaper import ArabicReshaper
+    #
+    #     arabic_reshaper = ArabicReshaper()
+    #     strings = [
+    #         " ".join([arabic_reshaper.reshape(w) for w in s.split(" ")[::-1]])
+    #         for s in strings
+    #     ]
     if args.case == "upper":
         strings = [x.upper() for x in strings]
     if args.case == "lower":
@@ -470,7 +470,7 @@ def main():
                 file_name = str(i) + "." + args.extension
                 if args.space_width == 0:
                     file_name = file_name.replace(" ", "")
-                f.write("{} {}\n".format(file_name, strings[i]))
+                f.write("{} {}\n".format(i, strings[i]))
 
 
 if __name__ == "__main__":

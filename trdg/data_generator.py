@@ -236,12 +236,13 @@ class FakeTextDataGenerator(object):
         elif name_format == 2:
             image_name = "{}.{}".format(str(index), extension)
             mask_name = "{}_mask.png".format(str(index))
+
         else:
             print("{} is not a valid name format. Using default.".format(name_format))
             image_name = "{}_{}.{}".format(text, str(index), extension)
             mask_name = "{}_{}_mask.png".format(text, str(index))
 
-        # Save the image
+            # Save the image
         if out_dir is not None:
             final_image.save(os.path.join(out_dir, image_name))
             if output_mask == 1:
